@@ -1048,7 +1048,7 @@ func (ic *GenericController) createServers(data []*extensions.Ingress,
 			servers[host].SSLCertificate = defaultPemFileName
 			servers[host].SSLPemChecksum = defaultPemSHA	
 			if tlsSecretName == "" {
-				glog.Warningf("ssl certificate \"%v\" does not exist in local store. Using the default cert", key)
+				glog.V(3).Infof("host %v is listed on tls section but secretName is empty. Using default cert", host)
 				continue
 			}
 
