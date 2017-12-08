@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## v0.4.1
+Fixing issue https://github.com/jcmoraisjr/haproxy-ingress/issues/78.
+
 ## v0.4-beta.1
 
 Changes and improvements since `v0.3`
