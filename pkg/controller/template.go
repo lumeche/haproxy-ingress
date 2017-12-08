@@ -19,8 +19,8 @@ package controller
 import (
 	"bytes"
 	"github.com/golang/glog"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/types"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/utils"
+	"github.com/lumeche/haproxy-ingress/pkg/types"
+	"github.com/lumeche/haproxy-ingress/pkg/utils"
 	"os/exec"
 	"regexp"
 	"strconv"

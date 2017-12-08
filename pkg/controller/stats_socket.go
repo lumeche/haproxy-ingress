@@ -19,8 +19,8 @@ package controller
 import (
 	"fmt"
 	"github.com/golang/glog"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/types"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/utils"
+	"github.com/lumeche/haproxy-ingress/pkg/types"
+	"github.com/lumeche/haproxy-ingress/pkg/utils"
 	"k8s.io/ingress/core/pkg/ingress"
 	"reflect"
 	"sort"
