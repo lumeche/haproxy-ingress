@@ -1043,24 +1043,26 @@ func (ic *GenericController) createServers(data []*extensions.Ingress,
 				continue
 			}
 
+			// From now we want TLS. If assigning a custom
+			// crt failed we end up with the default cert
+			servers[host].SSLCertificate = defaultPemFileName
+			servers[host].SSLPemChecksum = defaultPemSHA	
 			if tlsSecretName == "" {
-				glog.V(3).Infof("host %v is listed on tls section but secretName is empty. Using default cert", host)
-				servers[host].SSLCertificate = defaultPemFileName
-				servers[host].SSLPemChecksum = defaultPemSHA
+				glog.Warningf("ssl certificate \"%v\" does not exist in local store. Using the default cert", key)
 				continue
 			}
 
 			key := fmt.Sprintf("%v/%v", ing.Namespace, tlsSecretName)
 			bc, exists := ic.sslCertTracker.Get(key)
 			if !exists {
-				glog.Warningf("ssl certificate \"%v\" does not exist in local store", key)
+				glog.Warningf("ssl certificate \"%v\" does not exist in local store. Using the default cert", key)
 				continue
 			}
 
 			cert := bc.(*ingress.SSLCert)
 			err = cert.Certificate.VerifyHostname(host)
 			if err != nil {
-				glog.Warningf("ssl certificate %v does not contain a Common Name or Subject Alternative Name for host %v", key, host)
+				glog.Warningf("ssl certificate %v does not contain a Subject Alternative Name for host %v. Using the default cert", key, host)
 				continue
 			}
 
