@@ -120,7 +120,10 @@ func setEndpointWeight(statsSocket, backendName, backendServerName string, weigh
 	} else {
 		state = "ready"
 	}
-	glog.V(10).Infof("Sending weight change through socket for endpoint for %s %s %d", backendName, backendServerName, weight)
+
+	glog.Infof("Sending weight change through socket: 'set server %s/%s weight %d\\nset server %s/%s state %s\\n'",
+		backendName, backendServerName, weight, backendName, backendServerName, state)
+
 	err := utils.SendToSocket(statsSocket, fmt.Sprintf("set server %s/%s weight %d\nset server %s/%s state %s\n",
 		backendName, backendServerName, weight, backendName, backendServerName, state))
 	if err != nil {
@@ -255,6 +258,7 @@ func (d *DynConfig) dynamicUpdateBackends() bool {
 // dynamicUpdateEndpoint tries to update without reload
 // Return true if changing was sucessfully applied, false otherwise
 func (d *DynConfig) dynamicUpdateEndpoints(backendName string, updEndpoints map[string]*ingress.Endpoint, backendSlots *types.HAProxyBackendSlots) bool {
+	glog.Infof("dynamicUpdateEndpoint, trying to update without reload")
 	for name, updEndpoint := range updEndpoints {
 		backendSlot, found := backendSlots.FullSlots[name]
 		if !found {
