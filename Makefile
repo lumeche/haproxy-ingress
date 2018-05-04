@@ -2,7 +2,7 @@
 default: build
 
 REPO_LOCAL=localhost/haproxy-ingress
-REPO_PUBLIC=quay.io/jcmoraisjr/haproxy-ingress
+REPO_PUBLIC=quay.io/lumeche/haproxy-ingress
 DOCKER_HUB=quay.io
 include container.mk
 
