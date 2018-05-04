@@ -280,9 +280,10 @@ func (d *DynConfig) dynamicUpdateEndpoints(backendName string, updEndpoints map[
 				BackendServerName: backendServerName,
 				BackendEndpoint:   updEndpoint,
 			}
-			if !setEndpointWeight(d.statsSocket, backendName, backendServerName, updEndpoint.Weight) {
-				return false
-			}
+			return false
+			//if !setEndpointWeight(d.statsSocket, backendName, backendServerName, updEndpoint.Weight) {
+			//	return false
+			//}
 		}
 	}
 	return true
