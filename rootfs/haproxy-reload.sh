@@ -33,10 +33,12 @@
 #  -x get the listening sockets from the old HAProxy process
 
 set -e
-
+set -x
 HAPROXY_SOCKET=/var/run/haproxy-stats.sock
 HAPROXY_STATE=/var/lib/haproxy/state-global
 mkdir -p /var/lib/haproxy
+echo "param $1"
+
 if [ -S $HAPROXY_SOCKET ]; then
     echo "show servers state" | socat $HAPROXY_SOCKET - > $HAPROXY_STATE
 else
@@ -46,6 +48,7 @@ case "$1" in
     native)
         CONFIG="$2"
         HAPROXY_PID=/var/run/haproxy.pid
+        echo "haproxy -f $CONFIG -p $HAPROXY_PID -D -sf $(cat $HAPROXY_PID 2>/dev/null || :)"
         haproxy -f "$CONFIG" -p "$HAPROXY_PID" -D -sf $(cat "$HAPROXY_PID" 2>/dev/null || :)
         ;;
     reusesocket|multibinder)
@@ -54,8 +57,10 @@ case "$1" in
         HAPROXY_PID=/var/run/haproxy.pid
         OLD_PID=$(cat "$HAPROXY_PID" 2>/dev/null || :)
         if [ -S "$HAPROXY_SOCKET" ]; then
+            echo "haproxy -f $CONFIG -p $HAPROXY_PID -sf $OLD_PID -x $HAPROXY_SOCKET"
             haproxy -f "$CONFIG" -p "$HAPROXY_PID" -sf $OLD_PID -x "$HAPROXY_SOCKET"
         else
+            echo "haproxy -f $CONFIG -p $HAPROXY_PID -sf $OLD_PID"
             haproxy -f "$CONFIG" -p "$HAPROXY_PID" -sf $OLD_PID
         fi
         ;;

@@ -18,12 +18,13 @@ package dynconfig
 
 import (
 	"fmt"
+	"reflect"
+	"sort"
+
 	"github.com/golang/glog"
 	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
 	"github.com/jcmoraisjr/haproxy-ingress/pkg/types"
 	"github.com/jcmoraisjr/haproxy-ingress/pkg/utils"
-	"reflect"
-	"sort"
 )
 
 // DynConfig has configurations used to update a running HAProxy instance
@@ -119,6 +120,7 @@ func setEndpointWeight(statsSocket, backendName, backendServerName string, weigh
 	} else {
 		state = "ready"
 	}
+	glog.V(10).Infof("Sending weight change through socket for endpoint for %s %s %d", backendName, backendServerName, weight)
 	err := utils.SendToSocket(statsSocket, fmt.Sprintf("set server %s/%s weight %d\nset server %s/%s state %s\n",
 		backendName, backendServerName, weight, backendName, backendServerName, state))
 	if err != nil {
