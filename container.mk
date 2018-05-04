@@ -23,9 +23,9 @@ image:
 push:
 	docker push $(REPO):$(TAG)
 tag-push:
-ifeq ($(GIT_TAG),true)
-ifeq ($(TRAVIS_PULL_REQUEST),false)
+#ifeq ($(GIT_TAG),true)
+#ifeq ($(TRAVIS_PULL_REQUEST),false)
 	@docker login -u="$(DOCKER_USR)" -p="$(DOCKER_PWD)" $(DOCKER_HUB)
 	@$(MAKE) image push
-endif
-endif
+#endif
+#endif
