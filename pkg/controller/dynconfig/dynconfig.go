@@ -22,9 +22,9 @@ import (
 	"sort"
 
 	"github.com/golang/glog"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/types"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/utils"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/types"
+	"github.com/lumeche/haproxy-ingress/pkg/utils"
 )
 
 // DynConfig has configurations used to update a running HAProxy instance

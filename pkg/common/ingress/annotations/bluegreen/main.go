@@ -18,7 +18,7 @@ package bluegreen
 
 import (
 	"fmt"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/parser"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/parser"
 	extensions "k8s.io/api/extensions/v1beta1"
 	"strconv"
 	"strings"

@@ -27,10 +27,10 @@ import (
 	extensions "k8s.io/api/extensions/v1beta1"
 	"k8s.io/client-go/tools/cache"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/class"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/parser"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/net/ssl"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/class"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/parser"
+	"github.com/lumeche/haproxy-ingress/pkg/common/net/ssl"
 )
 
 // syncSecret keeps in sync Secrets used by Ingress rules with the files on

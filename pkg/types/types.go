@@ -17,14 +17,14 @@ limitations under the License.
 package types
 
 import (
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/authtls"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/hsts"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/proxy"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/redirect"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/defaults"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/authtls"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/hsts"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/proxy"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/redirect"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/defaults"
 )
 
 type (

@@ -25,7 +25,7 @@ import (
 
 	"fmt"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/resolver"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/resolver"
 	"k8s.io/apimachinery/pkg/util/intstr"
 )
 

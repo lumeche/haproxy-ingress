@@ -23,7 +23,7 @@ import (
 
 	api "k8s.io/api/core/v1"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
 )
 
 // DeniedKeyName name of the key that contains the reason to deny a location

@@ -29,9 +29,9 @@ import (
 	"k8s.io/client-go/tools/cache"
 	fcache "k8s.io/client-go/tools/cache/testing"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/class"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/parser"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/class"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/parser"
 )
 
 type cacheController struct {

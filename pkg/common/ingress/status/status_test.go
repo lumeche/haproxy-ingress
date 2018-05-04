@@ -28,10 +28,10 @@ import (
 	"k8s.io/client-go/tools/cache"
 	"k8s.io/kubernetes/pkg/api"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/class"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/store"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/k8s"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/task"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/class"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/store"
+	"github.com/lumeche/haproxy-ingress/pkg/common/k8s"
+	"github.com/lumeche/haproxy-ingress/pkg/common/task"
 )
 
 func buildLoadBalancerIngressByIP() []apiv1.LoadBalancerIngress {

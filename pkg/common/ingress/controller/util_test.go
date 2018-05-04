@@ -20,15 +20,15 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/auth"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/authreq"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/cors"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/ipwhitelist"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/proxy"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/redirect"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/auth"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/authreq"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/cors"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/ipwhitelist"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/proxy"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/redirect"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
 )
 
 type fakeError struct{}

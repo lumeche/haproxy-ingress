@@ -19,7 +19,7 @@ package upstreamvhost
 import (
 	extensions "k8s.io/api/extensions/v1beta1"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/parser"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/parser"
 )
 
 const (

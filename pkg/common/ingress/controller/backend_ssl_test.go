@@ -28,9 +28,9 @@ import (
 	cache_client "k8s.io/client-go/tools/cache"
 	"k8s.io/client-go/util/flowcontrol"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/store"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/task"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/store"
+	"github.com/lumeche/haproxy-ingress/pkg/common/task"
 	"k8s.io/kubernetes/pkg/api"
 )
 

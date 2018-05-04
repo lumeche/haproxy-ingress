@@ -22,12 +22,12 @@ import (
 
 	"github.com/pkg/errors"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/net"
+	"github.com/lumeche/haproxy-ingress/pkg/common/net"
 	extensions "k8s.io/api/extensions/v1beta1"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/parser"
-	ing_errors "github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/errors"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/resolver"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/parser"
+	ing_errors "github.com/lumeche/haproxy-ingress/pkg/common/ingress/errors"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/resolver"
 )
 
 const (

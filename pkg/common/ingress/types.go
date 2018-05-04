@@ -18,7 +18,7 @@ package ingress
 
 import (
 	"fmt"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/hsts"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/hsts"
 	"time"
 
 	"github.com/spf13/pflag"
@@ -28,19 +28,19 @@ import (
 	"k8s.io/apimachinery/pkg/util/intstr"
 	"k8s.io/apiserver/pkg/server/healthz"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/auth"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/authreq"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/authtls"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/bluegreen"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/cors"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/ipwhitelist"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/proxy"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/redirect"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/defaults"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/resolver"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/store"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/auth"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/authreq"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/authtls"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/bluegreen"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/cors"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/ipwhitelist"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/proxy"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/ratelimit"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/redirect"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/rewrite"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/defaults"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/resolver"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/store"
 )
 
 var (

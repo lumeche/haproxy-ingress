@@ -65,7 +65,7 @@ Location: https://foo.bar/
 ```
 
 The default value of ssl-redirect annotation is true and can be changed globally
-using a [ConfigMap](https://github.com/jcmoraisjr/haproxy-ingress#configmap).
+using a [ConfigMap](https://github.com/lumeche/haproxy-ingress#configmap).
 
 ### App root context redirect
 

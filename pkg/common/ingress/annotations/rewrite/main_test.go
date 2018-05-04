@@ -24,7 +24,7 @@ import (
 	meta_v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/defaults"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/defaults"
 )
 
 const (

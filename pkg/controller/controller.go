@@ -18,12 +18,12 @@ package controller
 
 import (
 	"github.com/golang/glog"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/controller"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/defaults"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/controller/dynconfig"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/types"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/version"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/controller"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/defaults"
+	"github.com/lumeche/haproxy-ingress/pkg/controller/dynconfig"
+	"github.com/lumeche/haproxy-ingress/pkg/types"
+	"github.com/lumeche/haproxy-ingress/pkg/version"
 	"github.com/spf13/pflag"
 	"io/ioutil"
 	api "k8s.io/api/core/v1"

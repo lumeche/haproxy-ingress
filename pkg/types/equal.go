@@ -17,7 +17,7 @@ limitations under the License.
 package types
 
 import (
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/utils"
+	"github.com/lumeche/haproxy-ingress/pkg/common/utils"
 	"reflect"
 )
 

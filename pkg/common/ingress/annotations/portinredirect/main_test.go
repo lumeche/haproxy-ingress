@@ -26,7 +26,7 @@ import (
 
 	"fmt"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/defaults"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/defaults"
 )
 
 func buildIngress() *extensions.Ingress {

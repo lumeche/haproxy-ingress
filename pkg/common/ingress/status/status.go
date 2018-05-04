@@ -39,11 +39,11 @@ import (
 	"k8s.io/client-go/tools/leaderelection/resourcelock"
 	"k8s.io/client-go/tools/record"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/annotations/class"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress/store"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/k8s"
-	ingress_strings "github.com/jcmoraisjr/haproxy-ingress/pkg/common/strings"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/task"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/annotations/class"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress/store"
+	"github.com/lumeche/haproxy-ingress/pkg/common/k8s"
+	ingress_strings "github.com/lumeche/haproxy-ingress/pkg/common/strings"
+	"github.com/lumeche/haproxy-ingress/pkg/common/task"
 )
 
 const (

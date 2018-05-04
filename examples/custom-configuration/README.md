@@ -32,4 +32,4 @@ The only difference from the deployment instructions is the --configmap paramete
 
 If the Configmap it is updated, HAProxy will be reloaded with the new configuration.
 
-Check all the config options in the [HAProxy Ingress docs](https://github.com/jcmoraisjr/haproxy-ingress#configmap)
+Check all the config options in the [HAProxy Ingress docs](https://github.com/lumeche/haproxy-ingress#configmap)

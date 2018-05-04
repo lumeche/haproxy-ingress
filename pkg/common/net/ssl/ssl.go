@@ -37,8 +37,8 @@ import (
 
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/file"
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/file"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
 )
 
 var (

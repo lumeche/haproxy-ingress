@@ -19,7 +19,7 @@ package controller
 import (
 	"github.com/prometheus/client_golang/prometheus"
 
-	"github.com/jcmoraisjr/haproxy-ingress/pkg/common/ingress"
+	"github.com/lumeche/haproxy-ingress/pkg/common/ingress"
 )
 
 const (

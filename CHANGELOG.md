@@ -4,15 +4,15 @@
 
 Fixes and improvements since `v0.5-beta.2`
 
-* Fix sync of excluded secrets - [#102](https://github.com/jcmoraisjr/haproxy-ingress/issues/102)
-* Fix config with long fqdn - [#112](https://github.com/jcmoraisjr/haproxy-ingress/issues/112)
-* Fix non ssl redirect on default backend - [#120](https://github.com/jcmoraisjr/haproxy-ingress/issues/120)
+* Fix sync of excluded secrets - [#102](https://github.com/lumeche/haproxy-ingress/issues/102)
+* Fix config with long fqdn - [#112](https://github.com/lumeche/haproxy-ingress/issues/112)
+* Fix non ssl redirect on default backend - [#120](https://github.com/lumeche/haproxy-ingress/issues/120)
 
 ## v0.5-beta.2
 
 Fixes and improvements since `v0.5-beta.1`
 
-* Fix reading of txn.path on http-request keywords - [#102](https://github.com/jcmoraisjr/haproxy-ingress/issues/102)
+* Fix reading of txn.path on http-request keywords - [#102](https://github.com/lumeche/haproxy-ingress/issues/102)
 
 ## v0.5-beta.1
 
@@ -25,8 +25,8 @@ Breaking backward compatibility from `v0.4`:
 Fixes and improvements since `v0.4`
 
 * Change from Go 1.8.1 to 1.9.2
-* Implement full config of default backend - [#73](https://github.com/jcmoraisjr/haproxy-ingress/issues/73)
-* Fix removal of TLS if failing to read the secretName - [#78](https://github.com/jcmoraisjr/haproxy-ingress/issues/78)
+* Implement full config of default backend - [#73](https://github.com/lumeche/haproxy-ingress/issues/73)
+* Fix removal of TLS if failing to read the secretName - [#78](https://github.com/lumeche/haproxy-ingress/issues/78)
 * New annotations:
   * Rewrite path support - [doc](/README.md#rewrite-target)
     * `ingress.kubernetes.io/rewrite-target`
@@ -78,28 +78,28 @@ Fixes and improvements since `v0.4-beta.1`
 
 Fixes and improvements since `v0.3`
 
-* Add dynamic scaling - [doc](https://github.com/jcmoraisjr/haproxy-ingress#dynamic-scaling)
-* Add monitoring URI - [doc](https://github.com/jcmoraisjr/haproxy-ingress#healthz-port)
-* Add [PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) protocol configmap options - [doc](https://github.com/jcmoraisjr/haproxy-ingress#use-proxy-protocol)
+* Add dynamic scaling - [doc](https://github.com/lumeche/haproxy-ingress#dynamic-scaling)
+* Add monitoring URI - [doc](https://github.com/lumeche/haproxy-ingress#healthz-port)
+* Add [PROXY](http://www.haproxy.org/download/1.8/doc/proxy-protocol.txt) protocol configmap options - [doc](https://github.com/lumeche/haproxy-ingress#use-proxy-protocol)
   * `UseProxyProtocol`
   * `StatsProxyProtocol`
-* Add log format configmap options - [doc](https://github.com/jcmoraisjr/haproxy-ingress#log-format)
+* Add log format configmap options - [doc](https://github.com/lumeche/haproxy-ingress#log-format)
   * `HTTPLogFormat`
   * `TCPLogFormat`
-* Add stick session ingress annotations - [doc](https://github.com/jcmoraisjr/haproxy-ingress#affinity)
+* Add stick session ingress annotations - [doc](https://github.com/lumeche/haproxy-ingress#affinity)
   * `ingress.kubernetes.io/affinity`
   * `ingress.kubernetes.io/session-cookie-name`
 * Support for wildcard hostnames
 * Better and faster synchronization after resource updates
-* Support `k`, `m` and `g` suffix on `proxy-body-size` annotation and configmap option - [doc](https://github.com/jcmoraisjr/haproxy-ingress#proxy-body-size)
+* Support `k`, `m` and `g` suffix on `proxy-body-size` annotation and configmap option - [doc](https://github.com/lumeche/haproxy-ingress#proxy-body-size)
 * HTTP 495 and 496 error pages on auth TLS errors
 * Add TLS error page ingress annotation
   * `ingress.kubernetes.io/auth-tls-error-page`
-* Add support to SSL/TLS offload outside HAProxy on a configmap option - [doc](https://github.com/jcmoraisjr/haproxy-ingress#https-to-http-port)
+* Add support to SSL/TLS offload outside HAProxy on a configmap option - [doc](https://github.com/lumeche/haproxy-ingress#https-to-http-port)
   * `https-to-http-port`
-* Add support to host alias on ingress annotation - [doc](https://github.com/jcmoraisjr/haproxy-ingress#server-alias)
+* Add support to host alias on ingress annotation - [doc](https://github.com/lumeche/haproxy-ingress#server-alias)
   * `ingress.kubernetes.io/server-alias`
-* Fix multibinder goes zombie [#51](https://github.com/jcmoraisjr/haproxy-ingress/issues/51) updating to multibinder 0.0.5
+* Fix multibinder goes zombie [#51](https://github.com/lumeche/haproxy-ingress/issues/51) updating to multibinder 0.0.5
 * Add `X-SSL` headers on client authentication with TLS
   * `X-SSL-Client-SHA1`
   * `X-SSL-Client-DN`
@@ -166,7 +166,7 @@ Other changes and improvements:
 
 Fixes and improvements since `v0.2`
 
-* Fixes [#14](https://github.com/jcmoraisjr/haproxy-ingress/issues/14) (Incorrect `X-Forwarded-For` handling)
+* Fixes [#14](https://github.com/lumeche/haproxy-ingress/issues/14) (Incorrect `X-Forwarded-For` handling)
 
 ## v0.2
 
