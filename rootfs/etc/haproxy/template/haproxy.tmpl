@@ -2,6 +2,8 @@
 {{- $cfg := .Cfg -}}
 global
     daemon
+
+    lua-load /etc/haproxy/template/sample-fetchers.lua
     stats socket {{ $cfg.StatsSocket }} level admin expose-fd listeners
 {{- if $cfg.LoadServerState }}
     server-state-file state-global
@@ -86,7 +88,9 @@ listen tcp-{{ $tcp.Port }}
 {{- range $backend := $ing.Backends }}
 backend {{ $backend.Name }}
     mode {{ if $backend.SSLPassthrough }}tcp{{ else }}http{{ end }}
-    balance {{ $cfg.BalanceAlgorithm }}
+    #balance {{ $cfg.BalanceAlgorithm }}
+    balance hdr(X-Nuance-User)
+    hash-type consistent
 {{- $sticky := $backend.SessionAffinity }}
 {{- if eq $sticky.AffinityType "cookie" }}
     cookie {{ $sticky.CookieSessionAffinity.Name }} {{ $sticky.CookieSessionAffinity.Strategy }} {{ if eq $sticky.CookieSessionAffinity.Strategy "insert" }}indirect nocache{{ end }} dynamic
@@ -140,11 +144,22 @@ frontend httpsfront
     default_backend httpsback-shared-backend
 
 ######
+###### HTTP frontend BLUE-GREEN step 1
+######
+frontend httpfrontbluegreen
+    bind *:8080{{ if $cfg.UseProxyProtocol }} accept-proxy{{ end }}
+    mode http
+    default_backend httpback-shared-backend
+    
+######
 ###### HTTP(S) frontend - shared http mode
 ######
 backend httpback-shared-backend
     mode http
+    #Remove keep-alive for user stickiness
+    option http-server-close
     server shared-http-frontend unix@/var/run/haproxy-http.sock send-proxy-v2
+    
 backend httpsback-shared-backend
     mode tcp
     server shared-https-frontend unix@/var/run/haproxy-https.sock send-proxy-v2
@@ -205,6 +220,20 @@ frontend httpfront-{{ if $isShared }}shared-frontend{{ else if $isDefault }}defa
     bind unix@/var/run/haproxy-https{{ if not $isShared }}-{{ $singleserver.HostnameSocket }}{{ end }}.sock ssl alpn h2,http/1.1 crt {{ if $isShared }}/ingress-controller/ssl{{ else }}{{ $singleserver.SSLCertificate }}{{ end }}{{ if $isCACert }} ca-file {{ $singleserver.CertificateAuth.AuthSSLCert.CAFileName }} verify optional ca-ignore-err all crt-ignore-err all{{ end }} accept-proxy
 {{- end }}
     mode http
+    
+{{- if $isShared }}
+    tcp-request inspect-delay 3s
+    # Check for HTTP first, this prevents invoking lua too early
+
+    tcp-request content reject if !HTTP
+    acl has_user_id lua.get_user_id() -m len gt 0
+    tcp-request content set-var(txn.user_id) lua.get_user_id()
+    tcp-request content accept if has_user_id
+    tcp-request content accept if WAIT_END
+    tcp-request content reject
+
+    http-request add-header X-Nuance-User %[var(txn.user_id)] if has_user_id        
+{{ end }}
 
 {{- /*------------------------------------*/}}
 {{- if ne $cfg.Syslog "" }}
@@ -232,8 +261,8 @@ frontend httpfront-{{ if $isShared }}shared-frontend{{ else if $isDefault }}defa
 
 {{- /*------------------------------------*/}}
 {{- if or $isShared $singleserver.HasRateLimit }}
-    stick-table type ip size 200k expire 5m store conn_cur,conn_rate(1s)
-    tcp-request content track-sc1 src
+    #stick-table type ip size 200k expire 5m store conn_cur,conn_rate(1s)
+    #tcp-request content track-sc1 src
 {{- range $server := $servers }}
 {{- range $location := $server.Locations }}
 {{- $conn_cur_limit := $location.RateLimit.Connections.Limit }}
